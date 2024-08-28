@@ -95,6 +95,7 @@ console.log(countO); // 3
 
 
 // Output all the odd numbers from 1 to Random Number (between 10 and 20) (both inclusive) -> 1 3 5 7 9 ….
+const{getRandomNumber} = require('../utils/MathHelper.js');
 let r1 = getRandomNumber(10, 20);
 
 console.log(`The random number is ${r1}`);
@@ -137,7 +138,7 @@ ran1 ran2
 4, 8    -> 4 5 6 7 8
 5, 5    -> 5
 */
-
+const { getRandomNumber } = require('../utils/MathHelper.js');
 let ran1 = getRandomNumber(1, 10);
 let ran2 = getRandomNumber(1, 10);
 

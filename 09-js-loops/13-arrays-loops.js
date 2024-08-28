@@ -17,7 +17,6 @@ for(const num of nums.slice(-3)) {
 
 console.log(sum);
 
-
 console.log('\n--------SOLUTION-2--------\n');
 sum = 0;
 
