@@ -7,7 +7,6 @@ array of numbers as an argument and returns how
 many elements are positive  when invoked. 
 
 Examples:
-
 countPos([-45, 0, 0, 34, 5, 67])  -> 3
 countPos([-23, -4, 0, 2, 5, 90, 123])  -> 4
 countPos([0, -1, -2, -3])  -> 0
@@ -175,7 +174,6 @@ n! = n × (n-1) × (n-2) × ... × 2 × 1
 Assume you will not be given a negative number.
 
 Examples:
-
 factorial(5)  -> 120
 factorial(4) -> 24
 factorial(0) -> 1
@@ -274,7 +272,6 @@ string word as an argument and returns the count of the words
 that has 3 characters or less when invoked.
 
 Examples:
-
 count3OrLess("Hello")  -> 0
 count3OrLess("Hi John")  -> 1
 count3OrLess("JavaScript is fun")  -> 2
