@@ -215,7 +215,6 @@ Requirement:
 Scooby Doo, Snoopy, Blue, Pluto, Dino, Sparky 
 
 THEN:
-
 -Output the entire array
 -Then, check if the array has Pluto element
 if it has Pluto, then output true
@@ -241,14 +240,12 @@ Requirement:
 Garfield, Tom, Sylvester, Azrael
 
 THEN:
-
 -Output the entire array sorted lexicographically
 -Then, check if the array has both Garfield and Felix
 if it has both, then output true
 if it does not have both, output false
 
 Expected Result:
-
 [ 'Azrael', 'Garfield', 'Sylvester', 'Tom' ]
 false
 */
@@ -301,7 +298,6 @@ Requirement:
 Pen, notebook, Book, paper, bag, pencil, Ruler
 
 THEN:
-
 -Output the entire array.
 -Output how many elements starts with 'B' or 'P', 
 ignoring cases.
@@ -309,7 +305,6 @@ ignoring cases.
 strings, ignoring cases.
 
 Expected Result:
-
 ['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler' ]
 Elements starting with 'B' or 'P' = 5
 Elements having 'book' or 'pen' = 4
@@ -348,14 +343,12 @@ Requirement:
 3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78
 
 THEN:
-
 -Output the entire array
 -Output how many elements are more than 10
 -Output how many elements are less than 10
 -Output how many elements are 10
 
 Expected Result:
-
 [ 3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78 ]
 Elements that are more than 10 = 5
 Elements that are less than 10 = 4
@@ -399,7 +392,6 @@ First array->  [ 5, 8, 13, 1, 2 ]
 Second array ->  [ 9, 3, 67, 1, 0 ]
 
 THEN:
-
 -Output both arrays
 –Then, create a new array that will take the greatest 
 value of same index from first 2 arrays and output the 
@@ -450,7 +442,6 @@ elements to be considered as duplicated, value and data types
 of the elements must be same.
 
 Examples:
-
 firstDuplicate([ 3, 7, 10, 0, 3, 10 ]) -> 3
 firstDuplicate([ 5, 7, 7, 0, 5, 10 ]) -> 5
 firstDuplicate([ 5, '5', 3, 7, 4 ]) -> -1
@@ -625,7 +616,6 @@ in the range of given 2 numbers.
 Assume you will not be given negative numbers.
 
 Examples:
-
 getMultipleOf5(3, 17) -> [ 5, 10, 15]
 getMultipleOf5(23, 5) -> [ 20, 15, 10, 5 ]
 getMultipleOf5(5, 5) -> [ 5 ]
