@@ -227,19 +227,247 @@ countPrimes([7, 4, 11, 23, 17])  -> 4
 countPrimes([41, 53, 19, 47, 67])  -> 5
 */
 
-function countPrimes(arr) {
-    let primeNums = []
+function isPrime(num) {
+    if(num === 2) return true;
 
-    for(let i = 0; i < arr.length; i++) {
-        for(let j = 2; j < arr[i]; j++ )
-            if(arr[i] === 2) primeNums.push(arr[i]);
-            else if(arr[i] % j !== 0) primeNums.push(arr[i]);
+    for(let i = 2; i < num; i++) {
+        if(num % i === 0) return false;
+        else return true;
     }
-
-    return primeNums;
 }
 
-console.log(countPrimes([-10, -3, 0, 1]))
-console.log(countPrimes([7, 4, 11, 23, 17]))
-console.log(countPrimes([41, 53, 19, 47, 67]))
+function countPrimes(arr) {
+    let primeCount = 0;
 
+    for (let i = 0; i < arr.length; i++) {
+        if (isPrime(arr[i])) primeCount++;
+    }
+
+    return primeCount;
+}
+
+console.log(countPrimes([-10, -3, 0, 1]));      
+console.log(countPrimes([7, 4, 11, 23, 17]));   
+console.log(countPrimes([41, 53, 19, 47, 67])); 
+
+
+
+
+console.log("\n------------Task-9------------\n");
+/*
+Requirement:
+Write a function named removeDuplicates() which takes an array argument 
+and returns a new array with all the duplicates removed.
+Examples:
+removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60])  -> [10, 20, 35, 60, 
+70]
+removeDuplicates([1, 2, 5, 2, 3])  -> [1, 2, 5, 3]
+removeDuplicates([0, -1, -2, -2, -1])  -> [0, -1, -2]
+removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"])  -> ["abc", "xyz", 
+"123", "ab", "ABC"]
+removeDuplicates(["1", "2", "3", "2", "3"])  -> ["1", "2", "3"]
+*/
+
+function removeDuplicates(arr) {
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (!newArr.includes(arr[i])) newArr.push(arr[i]);
+    }
+    return newArr;
+}
+
+console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60]));  
+console.log(removeDuplicates([1, 2, 5, 2, 3])); 
+console.log(removeDuplicates([0, -1, -2, -2, -1]));  
+console.log(removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"]));  
+console.log(removeDuplicates(["1", "2", "3", "2", "3"])); 
+
+
+
+
+console.log("\n------------Task-10------------\n");
+/*
+Requirement: 
+Write a method named isDateFormatValid() that takes a 
+string as an argument and returns true if the given date is 
+valid or returns false otherwise.
+Expected Format: nn/nn/nnnn
+So, it must be presented as 
+<2digits>/<2digits>/<4digits>
+Examples:
+isDateFormatValid("")  -> false
+isDateFormatValid("15/30/2020")  -> false
+isDateFormatValid("10-30-2020 ")  -> false
+isDateFormatValid("10.30.2020")  -> false
+isDateFormatValid("5/30/2020")  -> false
+isDateFormatValid("05/30/2020 ")  -> true
+isDateFormatValid("10/2/2020")  -> false
+isDateFormatValid("10/02/2020 ")  -> true
+*/
+
+function isDateFormatValid(Str) {
+    Str = Str.trim();
+
+    if (Str.length !== 10) {
+        return false;
+    }
+    if (Str[2] !== '/' || Str[5] !== '/') {
+        return false;
+    }
+
+    let day = Str.substring(0, 2);
+    let month = Str.substring(3, 5);
+    let year = Str.substring(6, 10);
+
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+        return false;
+    }
+    if (day.length !== 2 || month.length !== 2 || year.length !== 4) {
+        return false;
+    }
+    if (day > 12) return false;
+    return true;
+}
+
+console.log(isDateFormatValid(""));            
+console.log(isDateFormatValid("15/30/2020"));  
+console.log(isDateFormatValid("10-30-2020"));  
+console.log(isDateFormatValid("10.30.2020"));  
+console.log(isDateFormatValid("5/30/2020"));   
+console.log(isDateFormatValid("05/30/2020 "));
+console.log(isDateFormatValid("10/2/2020"));   
+console.log(isDateFormatValid("10/02/2020 "));
+
+
+
+
+console.log("\n------------Task-11------------\n");
+/*
+Requirement: 
+Write a method named secondMax() takes an array argument 
+and returns the second max number from the array.
+NOTE: Assume that you will not be given empty array and if the 
+array has only 1 element, it will be returned as second max 
+number.
+NOTE: Be careful when there is multiple max numbers.
+Examples:
+secondMax([7, 4, 4, 4, 23, 23, 23])  -> 7
+secondMax([3, 4, 5, 6])  -> 5
+secondMax([10])  -> 10
+*/
+
+function secondMax(arr) {
+    if (arr.length === 1) {
+        return arr[0];
+    }
+
+    let max = -Infinity;
+    let secondMax = -Infinity;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+            secondMax = max;
+            max = arr[i];
+        }
+        else if (arr[i] > secondMax && arr[i] !== max) {
+            secondMax = arr[i];
+        }
+    }
+
+    return secondMax;
+}
+
+console.log(secondMax([7, 4, 4, 4, 23, 23, 23]));
+console.log(secondMax([3, 4, 5, 6]));            
+console.log(secondMax([10]));
+
+
+
+
+console.log("\n------------Task-11------------\n");
+/*
+Requirement: 
+Write a method named secondMin() takes an array argument 
+and returns the second min number from the array.
+NOTE: Assume that you will not be given empty array and if the 
+array has only 1 element, it will be returned as second min 
+number.
+NOTE: Be careful when there is multiple min numbers.
+Examples:
+secondMax([7, 4, 4, 4, 23, 23, 23])  -> 7
+secondMax([3, 4, 5, 6])  -> 4
+secondMax([10])  -> 10
+*/
+
+function secondMin(arr) {
+    if (arr.length === 1) {
+        return arr[0];
+    }
+
+    let min = Infinity;
+    let secondMin = Infinity;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < min) {
+            secondMin = min;
+            min = arr[i];    
+        }
+        else if (arr[i] < secondMin && arr[i] !== min) {
+            secondMin = arr[i];
+        }
+    }
+
+    return secondMin;
+}
+
+console.log(secondMin([7, 4, 4, 4, 23, 23, 23]));
+console.log(secondMin([3, 4, 5, 6]));
+console.log(secondMin([10]));
+
+
+
+
+console.log("\n------------Task-11------------\n");
+/*
+Requirement: 
+Write a method named mostRepeated() takes an array argument and 
+returns the most counted element from the array.
+NOTE: Assume that you will not be given empty array and the count of one 
+element will always be more than the others.
+Examples:
+mostRepeated([4, 7, 4, 4, 4, 23, 23, 23])  -> 4
+mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"])  -> "pen"
+mostRepeated([10])  -> 10
+mostRepeated(["TechGlobal"])  -> "TechGlobal"
+*/
+
+function mostRepeated(arr) {
+    let countMap = {};
+
+    for (let i = 0; i < arr.length; i++) {
+        let element = arr[i];
+
+        if (countMap[element]) {
+            countMap[element]++;
+        } else {
+            countMap[element] = 1;
+        }
+    }
+
+    let mostRepeatedElement = arr[0];
+    let maxCount = 0;
+
+    for (let key in countMap) {
+        if (countMap[key] > maxCount) {
+            maxCount = countMap[key];
+            mostRepeatedElement = key;
+        }
+    }
+
+    return mostRepeatedElement;
+}
+
+console.log(mostRepeated([4, 7, 4, 4, 4, 23, 23, 23]));
+console.log(mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"]));
+console.log(mostRepeated([10]));
+console.log(mostRepeated(["TechGlobal"]));
