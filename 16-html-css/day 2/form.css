@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: lightgray;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    background-color: #fff;
+    width: 400px;
+    margin: auto;
+    padding: 10px;
+}
+
+input, label {
+    width: 100%;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    width: auto;
+}
+
+.group {
+    margin-bottom: 20px;
+}
