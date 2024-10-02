@@ -1,4 +1,14 @@
-// TASK-1
+/*
+TASK-1You are given a JS Array below:
+Count how many users are older than 30    -> 2
+Count how many users live in Chicago      -> 2
+Count how many users live in IL      -> 3
+Count how many users’ emails has Gmail domain   -> 2
+Find and store all the users name younger than 35     -> [ 'Tech', 'Jane', 
+'Alex' ]
+Find average of ages of all users     -> 28
+*/
+
 const users = [
     {
         firstName: 'Tech',
@@ -54,31 +64,40 @@ const users = [
     }
 ];
 
-// Count how many users are older than 30   -> 2
-const older30 = users.reduce((count, curr) => curr.age > 30 ? count + 1 : count, 0);
-console.log(older30);
+const olderThan30 = users.filter(user => user.age > 30).length;
 
-// Count how many users email has gmail domain  -> 2
-const gmailDomain = users.reduce((count, curr) => curr.email.includes('gmail') ? count + 1 : count, 0);
-console.log(gmailDomain);
+console.log(olderThan30);
 
-// Count how many users live in Chicago     -> 2
-const cityChicago = users.reduce((count, curr) => curr.address.city.toLowerCase() === 'chicago' ? count + 1 : count, 0);
-console.log(cityChicago);
+const liveInChic = users.filter(user => user.address.city === 'Chicago').length;
 
-// Count how many users live in IL     -> 3
-const stateIL = users.reduce((count, curr) => curr.address.state.toLowerCase() === 'il' ? count + 1 : count, 0);
-console.log(stateIL);
+console.log(liveInChic);
 
-// Find and store all the users name younger than 35    -> [ 'Tech', 'Jane', 'Alex' ]
-const younger35 = users.reduce((arr, curr) => curr.age < 35 ? arr.concat(curr.firstName) : arr, []);
-console.log(younger35);
+const liveInIL = users.filter(user => user.address.state === 'IL').length;
 
-// Find average of ages of all users    -> 28
-const averageAge = users.reduce((sum, curr) => sum + curr.age, 0) / users.length;
-console.log(averageAge); 
+console.log(liveInIL);
 
-// TASK-2
+const gmailUsers = users.filter(user => user.email.includes('@gmail.com')).length;
+
+console.log(gmailUsers);
+
+const namesYoungerThan35 = users.filter(user => user.age < 35).map(user => user.firstName);
+
+console.log(namesYoungerThan35);
+
+const averageAge = users.reduce((sum, user) => sum + user.age, 0) / users.length;
+
+console.log(averageAge);
+
+/*
+TASK-2You are given a JS Array below:
+Find the most expensive product    -> MacBook Pro 16-inch
+Find the least expensive product    -> AirPods Pro
+Find the product with the biggest quantity    -> AirPods Pro
+Find the product with the smallest quantity   -> MacBook Pro 16-inch
+Find all the product names    -> [ 'iPhone 14 Pro', 'MacBook Pro 16-
+inch', 'iPad Air', 'Apple Watch Series 7', 'AirPods Pro' ]
+*/
+
 const appleStore = [
     {
         productName: "iPhone 14 Pro",
@@ -107,27 +126,36 @@ const appleStore = [
     },
 ];
 
-// Find the most expensive product   -> MacBook Pro 16-inch
-const mostExpensive = appleStore.reduce((max, curr) => max.price > curr.price ? max: curr, {});
-console.log(mostExpensive.productName);
+const mostExpens = appleStore.reduce((prev, curr) => (prev.price > curr.price) ? prev : curr).productName;
 
-// Find the least expensive product   -> AirPods Pro
-const leastExpensive = appleStore.reduce((min, curr) => min.price < curr.price ? min: curr, {});
-console.log(leastExpensive.productName);
+console.log(mostExpens);
 
-// Find the product with the biggest quantity   -> AirPods Pro
-const mostQuantity = appleStore.reduce((mostCounted, curr) => mostCounted.quantity > curr.quantity ? mostCounted: curr, {});
-console.log(mostQuantity.productName);
+const leastExpens = appleStore.reduce((prev, curr) => (prev.price < curr.price) ? prev : curr).productName;
 
-// Find the product with the smallest quantity  -> iPhone 14 Pro
-const leastQuantity = appleStore.reduce((leastCounted, curr) => leastCounted.quantity < curr.quantity ? leastCounted: curr, {});
-console.log(leastQuantity.productName);
+console.log(leastExpens);
 
-// Find all the product names   -> [ 'iPhone 14 Pro', 'MacBook Pro 16-inch', 'iPad Air', 'Apple Watch Series 7', 'AirPods Pro' ]
-const allProductNames = appleStore.map((product) => product.productName);
-console.log(allProductNames);
+const bigQuant = appleStore.reduce((prev, curr) => (prev.quantity > curr.quantity) ? prev : curr).productName;
 
-// Task-3
+console.log(bigQuant);
+
+const smallQuant = appleStore.reduce((prev, curr) => (prev.quantity < curr.quantity) ? prev : curr).productName;
+
+console.log(smallQuant);
+
+const allProducts = appleStore.map(product => product.productName);
+
+console.log(allProducts);
+
+/*
+TASK-3You are given a JS Array below:
+Find the cheapest book in the bookstore           -> To Kill a Mockingbird
+Find the most expensive book in the bookstore   -> Harry Potter and the Sorcerer's 
+Stone
+Find all Classic books         -> [ 'The Great Gatsby', 'To Kill a 
+Mockingbird' ]
+*/
+
+
 const bookstore = [
     {
         title: "The Great Gatsby",
@@ -161,29 +189,26 @@ const bookstore = [
     }
 ];
 
-// Find the cheapest book in the bookstore  -> To Kill a Mockingbird
-const cheapestBook = bookstore.reduce((prev, curr) => {
-    return prev.price < curr.price ? prev : curr;
-}, {});
+const cheapestBook = bookstore.reduce((prev, curr) => (prev.price < curr.price) ? prev : curr).title;
 
-console.log(cheapestBook.title); // To Kill a Mockingbird
+console.log(cheapestBook);
 
-// Find the most expensive book in the bookstore  -> Harry Potter and the Sorcerer's Stone
-const mostExpensiveBook = bookstore.reduce((prev, curr) => {
-    return prev.price > curr.price ? prev : curr;
-}, {});
+const mostExpensBook = bookstore.reduce((prev, curr) => (prev.price > curr.price) ? prev : curr).title;
 
-console.log(mostExpensiveBook.title); // Harry Potter and the Sorcerer's Stone
+console.log(mostExpensBook);
 
-// Find all Classic books   -> [ 'The Great Gatsby', 'To Kill a Mockingbird' ]
-const classicBooks = bookstore.reduce((acc, curr) => {
-    if(curr.genre === 'Classic') acc.push(curr.title);
-    return acc;
-}, []);
+const allClassicBooks = bookstore.filter(book => book.genre === 'Classic').map(book => book.title);
 
-console.log(classicBooks); // [ 'The Great Gatsby', 'To Kill a Mockingbird' ]
+console.log(allClassicBooks);
 
-// Task-4
+/*
+TASK-4You are given a JS Array below:
+Calculate the total price of products in the cart     -> 2444
+Find the brands of all the products in the cart   -> [ 'Dell', 'Apple', 'Sony' ]
+Find all the items in the cart with their quantity  -> [ 'Laptop, 1', 'Smartphone 2', 
+'Headphones, 3' ]
+*/
+
 const shoppingCart = {
     userId: 12345,
     items: [
@@ -229,14 +254,23 @@ const shoppingCart = {
     orderDate: '2023-08-29'
 };
 
-// Calculate the total price of products in the cart     -> 2444
-const totalPrice = shoppingCart.items.reduce((total, item) => total + (item.price * item.quantity), 0);
-console.log(totalPrice); // 2444
+let totalPrice = 0;
+for (let i = 0; i < shoppingCart.items.length; i ++) {
+    totalPrice += shoppingCart.items[i].price * shoppingCart.items[i].quantity;
+}
 
-// Find the brands of all the products in the cart  -> [ 'Dell', 'Apple', 'Sony' ]
-const productBrands = shoppingCart.items.map(item => item.specifications.brand);
-console.log(productBrands); // [ 'Dell', 'Apple', 'Sony' ]
+console.log(totalPrice); // 
 
-// Find all the items in the cart with their quantity -> [ 'Laptop, 1', 'Smartphone 2', 'Headphones, 3' ]
-const itemsWithQuantities = shoppingCart.items.map(item => `${item.productName}, ${item.quantity}`);
-console.log(itemsWithQuantities); // [ 'Laptop, 1', 'Smartphone, 2', 'Headphones, 3' ]
+let brands = [];
+for (let i = 0; i < shoppingCart.items.length; i++) {
+    brands.push(shoppingCart.items[i].specifications.brand);
+}
+
+console.log(brands);
+
+let itemsQuant = []; 
+for (let i = 0; i < shoppingCart.items.length; i++) {
+    itemsQuant.push(shoppingCart.items[i].productName + ', ' + shoppingCart.items[i].quantity);
+}
+
+console.log(itemsQuant);

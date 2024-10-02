@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Practice Activity</h1>
+
+    <script>
+    const userName = prompt('What is your full name?');
+
+        if(userName && userName.length > 0) {
+            const confirmAns = confirm('Would you like to continue?');
+            
+            if(confirmAns) {
+                alert('Congratulations, you chose to continue!');
+            }  else {
+                alert('You declined, see ya later!');
+            }
+        
+            console.log(`Your inner size is, height: ${innerHeight} and width: ${innerWidth}`);
+        
+            let TIMER = 10000;
+            console.log(`Page is about to reload in ${TIMER} seconds.`);
+        
+            setTimeout(() => {
+                window.location.reload();
+            }, TIMER)
+        } else alert('Error, no input for name');
+    </script>
+</body>
+</html>
