@@ -101,6 +101,14 @@ console.log (findSumNumbers("ab110c045d"));
 console.log (findSumNumbers("525"));
 console.log (findSumNumbers("3 for 10 dollars"));
 
+// solution 2
+
+const findSumNums = str => {
+let arrOfNumbers = str.split(/\D+/)
+
+return arrOfNumbers.reduce((total, ele) => ele ? total + Number(ele) : total, 0)
+}
+
 
 
 

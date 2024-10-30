@@ -370,6 +370,10 @@ function add(arr1, arr2) {
     return arr1;
 }
 
+console.log(add([3, 0, 0, 7, 5, 10], [6, 3, 2] ))
+console.log(add([10, 3, 6, 3, 2], [6, 8, 3, 0, 0, 7, 5, 10, 34])) 
+console.log(add([-5, 6, -3, 11], [5, -6, 3, -11]))         
+
 
 
 
