@@ -83,7 +83,7 @@ function isTrueOrFalse(sentence) {
     return positiveCount >= negativeCount;
 }
 
-console.log(toCamelCase("first name")); "
+console.log(toCamelCase("first name"));
 console.log(toCamelCase("   ZIP CODE"));
 console.log(toSnakeCase("    I love Java Script"));
 console.log(alternatingCases("Tech Global"));
